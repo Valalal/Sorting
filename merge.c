@@ -12,11 +12,13 @@ void Merge_sort(int* array, int l, int r);
 int main(void) {
     int count;
     int* array;
-    Input(&count, &array);
-    Output(count, array);
-    Merge_sort(array, 0, count - 1);
-    Output(count, array);
-    free(array);
+    while (1) {
+        Input(&count, &array);
+        Output(count, array);
+        Merge_sort(array, 0, count - 1);
+        Output(count, array);
+        free(array);
+    }
 }
 
 
@@ -26,15 +28,13 @@ void Input(int* count, int** arr) {
         puts("Error");
         exit(1);
     }
-    int j = 0;
     *arr = (int*)malloc((*count) * sizeof(int));
     if (*arr) {
-        for (int i = *count; i > 0; i--) {
+        for (int i = 0; i < *count; i++) {
             if (arr)
-                (*arr)[j] = i;
+                (*arr)[i] = rand() % 20;
             else
                 exit(-2);
-            j++;
         }
         printf(".........\n");
     }

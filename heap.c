@@ -3,14 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void Input(int* count, int** array);
+void Input(int *count, int **array);
+
 void Heapify(int arr[], int count, int i);
+
 void Heap_Sort(int arr[], int count);
+
 void Output(int count, int array[]);
 
 int main(void) {
     int count;
-    int* array;
+    int *array;
     Input(&count, &array);
     Output(count, array);
     Heap_Sort(array, count);
@@ -18,21 +21,19 @@ int main(void) {
     free(array);
 }
 
-void Input(int* count, int** arr) {
+void Input(int *count, int **arr) {
     printf("Number of elements:\n");
     if (scanf("%d", count) == 0) {
         puts("Error");
         exit(1);
     }
-    int j = 0;
-    *arr = (int*)malloc((*count) * sizeof(int));
+    *arr = (int *) malloc((*count) * sizeof(int));
     if (*arr) {
-        for (int i = *count; i > 0; i--) {
+        for (int i = 0; i < *count; i++) {
             if (arr)
-                (*arr)[j] = i;
+                (*arr)[i] = rand() % 20;
             else
                 exit(-2);
-            j++;
         }
         printf(".........\n");
     }
